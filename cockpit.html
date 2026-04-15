@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>BG1 Cockpit UI — Layer 1 Engine</title>
+
+<style>
+/* Cockpit Container */
+.cockpit-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  border: 1px solid #dcdcdc;
+  background: #f7f7f7;
+  padding: 20px;
+  border-radius: 6px;
+  font-family: system-ui, sans-serif;
+}
+
+/* Tab Button Bar */
+.cockpit-tabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.tab-button {
+  padding: 10px 16px;
+  border: 1px solid #ccc;
+  background: #ffffff;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.tab-button.active {
+  background: #0073aa;
+  color: white;
+  border-color: #0073aa;
+}
+
+/* Fixed Scroll Panel */
+.cockpit-panel {
+  height: 600px;
+  overflow-y: auto;
+  padding-right: 10px;
+  border-top: 1px solid #ccc;
+}
+
+/* Panel Content */
+.panel-content {
+  display: none;
+}
+
+.panel-content.active {
+  display: block;
+}
+</style>
+
+</head>
+<body>
+
+<div class="cockpit-container">
+
+  <!-- TAB BUTTON BAR -->
+  <div class="cockpit-tabs">
+    <button class="tab-button active" data-target="information">Information</button>
+    <button class="tab-button" data-target="class">Class</button>
+    <button class="tab-button" data-target="combat-stats">Combat Stats</button>
+    <button class="tab-button" data-target="skills-abilities">Skills & Abilities</button>
+  </div>
+
+  <!-- FIXED SCROLL PANEL -->
+  <div class="cockpit-panel">
+
+    <div id="information" class="panel-content active">
+      <h2>Information</h2>
+      <p>This is where your BG-style character information will go.</p>
+    </div>
+
+    <div id="class" class="panel-content">
+      <h2>Class</h2>
+      <p>Class details, archetype, specialization, etc.</p>
+    </div>
+
+    <div id="combat-stats" class="panel-content">
+      <h2>Combat Stats</h2>
+      <p>AC, THAC0, HP, resistances, etc.</p>
+    </div>
+
+    <div id="skills-abilities" class="panel-content">
+      <h2>Skills & Abilities</h2>
+      <p>Proficiencies, abilities, talents, etc.</p>
+    </div>
+
+  </div>
+</div>
+
+<script>
+document.querySelectorAll('.tab-button').forEach(button => {
+  button.addEventListener('click', () => {
+
+    // Remove active class from all buttons
+    document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+
+    // Add active class to clicked button
+    button.classList.add('active');
+
+    // Hide all panels
+    document.querySelectorAll('.panel-content').forEach(panel => panel.classList.remove('active'));
+
+    // Show the selected panel
+    const target = button.getAttribute('data-target');
+    document.getElementById(target).classList.add('active');
+  });
+});
+</script>
+
+</body>
+</html>
