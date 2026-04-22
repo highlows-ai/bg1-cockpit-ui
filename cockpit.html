@@ -73,15 +73,68 @@
 .panel-content.active {
   display: block;
 }
+
+/* BASIC STATIC STAT BLOCK (your requested minimal version) */
+.static-stat-block {
+  width: 220px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+
+.static-stat-block h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.stat-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.stat-table td {
+  padding: 4px;
+  border-bottom: 1px solid #eee;
+}
 </style>
 
 </head>
 <body>
 
+<!-- STATIC PERSONALITY STAT BLOCK -->
+<div class="static-stat-block">
+  <h3>Personality Stats</h3>
+  <table class="stat-table">
+    <tr>
+      <td>Openness</td>
+      <td>85%</td>
+    </tr>
+    <tr>
+      <td>Consciententiousness</td>
+      <td>51%</td>
+    </tr>
+    <tr>
+      <td>Extraversion</td>
+      <td>67%</td>
+    </tr>
+    <tr>
+      <td>Agreeableness</td>
+      <td>81%</td>
+    </tr>
+    <tr>
+      <td>Neuroticism</td>
+      <td>47%</td>
+    </tr>
+  </table>
+</div>
+
+<!-- PORTRAIT -->
 <div id="portrait-region">
   <img src="https://briansullivan1226-psklx.wordpress.com/wp-content/uploads/2026/04/featured-image-for-front-page.jpg" id="portrait-img">
 </div>
 
+<!-- MAIN COCKPIT -->
 <div class="cockpit-container">
 
   <!-- TAB BUTTON BAR -->
