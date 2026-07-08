@@ -117,6 +117,16 @@ PORTABLE, NAMESPACED CSS
 .cockpit-panel-content.cockpit-active {
     display: block;
 }
+
+/* Dynamic Rectangle */
+.cockpit-info-rectangle {
+    margin-top: 20px;
+    padding: 15px;
+    background: #ffffff;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    min-height: 200px;
+}
 </style>
 
 <div class="cockpit-container">
@@ -152,6 +162,18 @@ PORTABLE, NAMESPACED CSS
                 <p>Class details, archetype, specialization, etc.</p>
             </section>
 
+            <!-- NEW BLOCK: STATS -->
+            <section id="stats" class="cockpit-panel-content">
+                <h2>Stats</h2>
+                <p>Core attributes, derived values, and mechanical character metrics.</p>
+            </section>
+
+            <!-- NEW BLOCK: BIOGRAPHY -->
+            <section id="biography" class="cockpit-panel-content">
+                <h2>Biography</h2>
+                <p>Background story, origin details, and personal history.</p>
+            </section>
+
             <section id="combat-stats" class="cockpit-panel-content">
                 <h2>Combat Stats</h2>
                 <p>AC, THAC0, HP, resistances, etc.</p>
@@ -171,6 +193,11 @@ PORTABLE, NAMESPACED CSS
                 <h2>References</h2>
                 <p>Professional references, character references, or in‑world NPC affiliations.</p>
             </section>
+
+            <!-- NEW CONTENT RECTANGLE -->
+            <div class="cockpit-info-rectangle" id="cockpit-info-rectangle">
+                <p>Select a section to view its details.</p>
+            </div>
 
         </div>
 
@@ -208,6 +235,24 @@ document.querySelectorAll('.cockpit-tab-button').forEach(button => {
 
         const target = button.getAttribute('data-cockpit-target');
         document.getElementById(target).classList.add('cockpit-active');
+
+        updateInfoRectangle(target);
     });
 });
+
+// Dynamic content rectangle updater
+function updateInfoRectangle(target) {
+    const contentMap = {
+        information: "<h3>Information</h3><p>General character information appears here.</p>",
+        class: "<h3>Class</h3><p>Class details and archetype information.</p>",
+        stats: "<h3>Stats</h3><p>Core attributes and derived values.</p>",
+        biography: "<h3>Biography</h3><p>Character background and personal history.</p>",
+        combat-stats: "<h3>Combat Stats</h3><p>AC, THAC0, HP, resistances, etc.</p>",
+        skills: "<h3>Skills</h3><p>Proficiencies and trained disciplines.</p>",
+        abilities: "<h3>Abilities</h3><p>Innate talents and special powers.</p>",
+        references: "<h3>References</h3><p>Professional or in‑world character references.</p>"
+    };
+
+    document.getElementById("cockpit-info-rectangle").innerHTML = contentMap[target] || "";
+}
 </script>
