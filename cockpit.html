@@ -3,6 +3,17 @@
 PORTABLE, NAMESPACED CSS
 ============================ */
 
+/* Name Block */
+.cockpit-name-block {
+    background: #2f2f2f;
+    color: #f2f2f2;
+    padding: 14px 20px;
+    font-size: 22px;
+    font-weight: 700;
+    border-bottom: 3px solid #1a1a1a;
+    letter-spacing: 0.5px;
+}
+
 /* Portrait */
 .cockpit-portrait-region {
     width: 180px;
@@ -25,7 +36,7 @@ PORTABLE, NAMESPACED CSS
     max-width: 1100px;
     border: 1px solid #dcdcdc;
     background: #f7f7f7;
-    padding: 20px;
+    padding: 0;
     border-radius: 6px;
     font-family: system-ui, sans-serif;
     margin: 0 auto;
@@ -35,8 +46,9 @@ PORTABLE, NAMESPACED CSS
 .cockpit-tabs {
     display: flex;
     gap: 12px;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
+    padding: 16px 20px;
+    background: #f7f7f7;
+    border-bottom: 2px solid #ccc;
 }
 
 .cockpit-tab-button {
@@ -59,6 +71,7 @@ PORTABLE, NAMESPACED CSS
 .cockpit-three-column {
     display: flex;
     gap: 20px;
+    padding: 20px;
     align-items: flex-start;
 }
 
@@ -68,7 +81,7 @@ PORTABLE, NAMESPACED CSS
     height: 600px;
     overflow-y: auto;
     padding-right: 10px;
-    border-top: 1px solid #ccc;
+    border-right: 1px solid #ccc;
 }
 
 /* Stats Block */
@@ -76,6 +89,7 @@ PORTABLE, NAMESPACED CSS
     width: 240px;
     padding: 10px;
     border: 1px solid #ccc;
+    background: #fafafa;
     flex-shrink: 0;
 }
 
@@ -106,6 +120,11 @@ PORTABLE, NAMESPACED CSS
 </style>
 
 <div class="cockpit-container">
+
+    <!-- NAME BLOCK -->
+    <div class="cockpit-name-block">
+        Brian Sullivan
+    </div>
 
     <!-- TABS -->
     <div class="cockpit-tabs">
