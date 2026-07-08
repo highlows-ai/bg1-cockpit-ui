@@ -1,21 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>BG1 Cockpit UI — Layer 1 Engine</title>
-
 <style>
-/* Portrait styles */
-#portrait-region {
+/* ============================
+PORTABLE, NAMESPACED CSS
+============================ */
+
+/* Portrait */
+.cockpit-portrait-region {
     width: 180px;
     height: 180px;
     border-radius: 8px;
     overflow: hidden;
     border: 2px solid #444;
-    margin-bottom: 20px;
+    flex-shrink: 0;
 }
 
-#portrait-img {
+.cockpit-portrait-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -23,115 +21,162 @@
 
 /* Cockpit Container */
 .cockpit-container {
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
-  border: 1px solid #dcdcdc;
-  background: #f7f7f7;
-  padding: 20px;
-  border-radius: 6px;
-  font-family: system-ui, sans-serif;
+    width: 100%;
+    max-width: 1100px;
+    border: 1px solid #dcdcdc;
+    background: #f7f7f7;
+    padding: 20px;
+    border-radius: 6px;
+    font-family: system-ui, sans-serif;
+    margin: 0 auto;
 }
 
-/* Tab Button Bar */
+/* Tabs */
 .cockpit-tabs {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 16px;
-  flex-wrap: wrap;
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
 }
 
-.tab-button {
-  padding: 10px 16px;
-  border: 1px solid #ccc;
-  background: #ffffff;
-  cursor: pointer;
-  border-radius: 4px;
-  font-weight: 600;
-  transition: background 0.2s, border-color 0.2s;
+.cockpit-tab-button {
+    padding: 10px 16px;
+    border: 1px solid #ccc;
+    background: #ffffff;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: background 0.2s, border-color 0.2s;
 }
 
-.tab-button.active {
-  background: #0073aa;
-  color: white;
-  border-color: #0073aa;
+.cockpit-tab-button.cockpit-active {
+    background: #0073aa;
+    color: white;
+    border-color: #0073aa;
 }
 
-/* Fixed Scroll Panel */
+/* Three-column layout */
+.cockpit-three-column {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+/* Scroll Panel */
 .cockpit-panel {
-  height: 600px;
-  overflow-y: auto;
-  padding-right: 10px;
-  border-top: 1px solid #ccc;
+    flex: 1;
+    height: 600px;
+    overflow-y: auto;
+    padding-right: 10px;
+    border-top: 1px solid #ccc;
+}
+
+/* Stats Block */
+.cockpit-stat-block {
+    width: 240px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    flex-shrink: 0;
+}
+
+.cockpit-stat-block h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.cockpit-stat-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cockpit-stat-table td {
+    padding: 4px;
+    border-bottom: 1px solid #eee;
 }
 
 /* Panel Content */
-.panel-content {
-  display: none;
+.cockpit-panel-content {
+    display: none;
 }
 
-.panel-content.active {
-  display: block;
+.cockpit-panel-content.cockpit-active {
+    display: block;
 }
 </style>
 
-</head>
-<body>
-
-<div id="portrait-region">
-  <img src="https://briansullivan1226-psklx.wordpress.com/wp-content/uploads/2026/04/featured-image-for-front-page.jpg" id="portrait-img">
-</div>
-
 <div class="cockpit-container">
 
-  <!-- TAB BUTTON BAR -->
-  <div class="cockpit-tabs">
-    <button class="tab-button active" data-target="information">Information</button>
-    <button class="tab-button" data-target="class">Class</button>
-    <button class="tab-button" data-target="combat-stats">Combat Stats</button>
-    <button class="tab-button" data-target="skills-abilities">Skills & Abilities</button>
-  </div>
-
-  <!-- FIXED SCROLL PANEL -->
-  <div class="cockpit-panel">
-
-    <div id="information" class="panel-content active">
-      <h2>Information</h2>
-      <p>This is where your BG-style character information will go.</p>
+    <!-- TABS -->
+    <div class="cockpit-tabs">
+        <button class="cockpit-tab-button cockpit-active" data-cockpit-target="information">Information</button>
+        <button class="cockpit-tab-button" data-cockpit-target="class">Class</button>
+        <button class="cockpit-tab-button" data-cockpit-target="combat-stats">Combat Stats</button>
+        <button class="cockpit-tab-button" data-cockpit-target="skills-abilities">Skills & Abilities</button>
     </div>
 
-    <div id="class" class="panel-content">
-      <h2>Class</h2>
-      <p>Class details, archetype, specialization, etc.</p>
-    </div>
+    <!-- THREE-COLUMN INTERIOR -->
+    <div class="cockpit-three-column">
 
-    <div id="combat-stats" class="panel-content">
-      <h2>Combat Stats</h2>
-      <p>AC, THAC0, HP, resistances, etc.</p>
-    </div>
+        <!-- LEFT: SCROLL PANEL -->
+        <div class="cockpit-panel">
 
-    <div id="skills-abilities" class="panel-content">
-      <h2>Skills & Abilities</h2>
-      <p>Proficiencies, abilities, talents, etc.</p>
-    </div>
+            <section id="information" class="cockpit-panel-content cockpit-active">
+                <h2>Information</h2>
+                <p>This is where your BG-style character information will go.</p>
+            </section>
 
-  </div>
+            <section id="class" class="cockpit-panel-content">
+                <h2>Class</h2>
+                <p>Class details, archetype, specialization, etc.</p>
+            </section>
+
+            <section id="combat-stats" class="cockpit-panel-content">
+                <h2>Combat Stats</h2>
+                <p>AC, THAC0, HP, resistances, etc.</p>
+            </section>
+
+            <section id="skills-abilities" class="cockpit-panel-content">
+                <h2>Skills & Abilities</h2>
+                <p>Proficiencies, abilities, talents, etc.</p>
+            </section>
+
+        </div>
+
+        <!-- CENTER: STATIC PERSONALITY STAT BLOCK -->
+        <aside class="cockpit-stat-block">
+            <h3>Personality Stats</h3>
+            <table class="cockpit-stat-table">
+                <tr><td>Openness</td><td>85%</td></tr>
+                <tr><td>Consciententiousness</td><td>51%</td></tr>
+                <tr><td>Extraversion</td><td>67%</td></tr>
+                <tr><td>Agreeableness</td><td>81%</td></tr>
+                <tr><td>Neuroticism</td><td>47%</td></tr>
+            </table>
+        </aside>
+
+        <!-- RIGHT: PORTRAIT -->
+        <div class="cockpit-portrait-region">
+            <img src="/assets/portraits/brian.png" class="cockpit-portrait-img">
+        </div>
+
+    </div>
 </div>
 
 <script>
-document.querySelectorAll('.tab-button').forEach(button => {
-  button.addEventListener('click', () => {
+document.querySelectorAll('.cockpit-tab-button').forEach(button => {
+    button.addEventListener('click', () => {
 
-    document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
-    button.classList.add('active');
+        document.querySelectorAll('.cockpit-tab-button')
+            .forEach(btn => btn.classList.remove('cockpit-active'));
 
-    document.querySelectorAll('.panel-content').forEach(panel => panel.classList.remove('active'));
+        button.classList.add('cockpit-active');
 
-    const target = button.getAttribute('data-target');
-    document.getElementById(target).classList.add('active');
-  });
+        document.querySelectorAll('.cockpit-panel-content')
+            .forEach(panel => panel.classList.remove('cockpit-active'));
+
+        const target = button.getAttribute('data-cockpit-target');
+        document.getElementById(target).classList.add('cockpit-active');
+    });
 });
 </script>
-
-</body>
-</html>
