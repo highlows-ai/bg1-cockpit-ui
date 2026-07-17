@@ -1,0 +1,202 @@
+/* ============================
+BG1 COCKPIT — CLEANED CSS
+============================ */
+
+/* Layout Container */
+.cockpit-container {
+    display: flex;
+    width: 100%;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+/* Left Column */
+.cockpit-left-column {
+    flex: 0 0 33%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Center Column */
+.cockpit-center-column {
+    flex: 0 0 33%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Right Column */
+.cockpit-right-column {
+    flex: 0 0 33%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Name Block */
+.cockpit-name-block {
+    background: #2f2f2f;
+    color: #fff;
+    padding: 10px;
+    border: 2px solid #555;
+    margin-bottom: 10px;
+}
+
+/* MAIN RIBBON */
+.cockpit-ribbon {
+    display: flex;
+    gap: 12px;
+    background: #2f2f2f;
+    border: 2px solid #555;
+    padding: 10px;
+    margin-bottom: 12px;
+}
+
+.cockpit-ribbon-item {
+    padding: 8px 12px;
+    background: #3a3a3a;
+    border: 2px solid #666;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.cockpit-ribbon-item:hover {
+    background: #4a4a4a;
+    border-color: #888;
+}
+
+.cockpit-ribbon-item.active {
+    background: #555;
+    border-color: #aaa;
+}
+
+/* SUB-RIBBON */
+.cockpit-sub-ribbon {
+    display: flex;
+    gap: 10px;
+    background: #262626;
+    border: 2px solid #555;
+    padding: 8px;
+    margin-bottom: 12px;
+    margin-top: -4px;
+}
+
+.cockpit-sub-ribbon-item {
+    padding: 6px 10px;
+    background: #3a3a3a;
+    border: 2px solid #666;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 500;
+    border-radius: 4px;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.cockpit-sub-ribbon-item:hover {
+    background: #4a4a4a;
+    border-color: #888;
+}
+
+.cockpit-sub-ribbon-item.active {
+    background: #555;
+    border-color: #aaa;
+}
+
+/* Dynamic Rectangle */
+.cockpit-dynamic-rectangle {
+    background: #1a1a1a;
+    border: 2px solid #666;
+    padding: 12px;
+    min-height: 120px;
+    color: #fff;
+    margin-top: 10px;
+}
+
+/* Portrait Block */
+.cockpit-portrait-block {
+    width: 300px;
+    background: #222;
+    border: 2px solid #555;
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+/* Portrait Image */
+.cockpit-portrait-img {
+    width: 300px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Portrait Stats Rectangle */
+.cockpit-portrait-stats-rectangle {
+    width: 300px;
+    background: #1e1e1e;
+    border: 2px solid #444;
+    padding: 10px 12px;
+    margin-top: 12px;
+    border-radius: 4px;
+    color: #e0e0e0;
+    font-family: system-ui, sans-serif;
+}
+
+/* Stat Rows */
+.cockpit-portrait-stat-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+    border-bottom: 1px solid #333;
+}
+
+.cockpit-portrait-stat-row:last-child {
+    border-bottom: none;
+}
+
+.cockpit-portrait-stat-label {
+    font-weight: 600;
+    color: #cfcfcf;
+}
+
+.cockpit-portrait-stat-value {
+    font-weight: 500;
+    color: #ffffff;
+}
+
+/* Info Card */
+.cockpit-info-card {
+    width: 300px;
+    background: #1e1e1e;
+    border: 2px solid #444;
+    padding: 12px;
+    margin-top: 12px;
+    border-radius: 4px;
+    color: #e0e0e0;
+    font-family: system-ui, sans-serif;
+}
+
+.cockpit-info-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+    border-bottom: 1px solid #333;
+}
+
+.cockpit-info-row:last-child {
+    border-bottom: none;
+}
+
+.cockpit-info-label {
+    font-weight: 600;
+    color: #cfcfcf;
+}
+
+.cockpit-info-value {
+    font-weight: 500;
+    color: #ffffff;
+}

@@ -1,182 +1,95 @@
-<style>
-/* ============================
-PORTABLE, NAMESPACED CSS
-============================ */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BG1 Cockpit UI</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
 
-/* Name Block */
-.cockpit-name-block {
-    background: #2f2f2f;
-    color: #fff;
-    padding: 10px;
-    border: 2px solid #555;
-    margin-bottom: 10px;
-}
+<body>
 
-/* Left Column Container */
-.cockpit-left-column {
-    width: 40%;
-    float: left;
-    padding-right: 10px;
-}
-
-/* Right Column Container */
-.cockpit-right-column {
-    width: 60%;
-    float: right;
-}
-
-/* Portrait Block */
-.cockpit-portrait-block {
-    width: 100%;
-    background: #222;
-    border: 2px solid #555;
-    padding: 10px;
-    text-align: center;
-    color: #fff;
-}
-
-/* Portrait Stats Rectangle (Static BG1-style) */
-.cockpit-portrait-stats-rectangle {
-    width: 100%;
-    background: #1e1e1e;
-    border: 2px solid #444;
-    padding: 10px 12px;
-    margin-top: 12px;
-    border-radius: 4px;
-    color: #e0e0e0;
-    font-family: system-ui, sans-serif;
-}
-
-.cockpit-portrait-stat-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 4px 0;
-    border-bottom: 1px solid #333;
-}
-
-.cockpit-portrait-stat-row:last-child {
-    border-bottom: none;
-}
-
-.cockpit-portrait-stat-label {
-    font-weight: 600;
-    color: #cfcfcf;
-}
-
-.cockpit-portrait-stat-value {
-    font-weight: 500;
-    color: #ffffff;
-}
-
-/* Left Column Blocks */
-.cockpit-panel-block {
-    background: #2b2b2b;
-    border: 2px solid #555;
-    padding: 10px;
-    margin-bottom: 10px;
-    cursor: pointer;
-    color: #fff;
-}
-
-/* Dynamic Rectangle Under Left Column */
-.cockpit-dynamic-rectangle {
-    background: #1a1a1a;
-    border: 2px solid #666;
-    padding: 12px;
-    margin-top: 10px;
-    min-height: 120px;
-    color: #fff;
-}
-
-/* Clearfix */
-.cockpit-clear {
-    clear: both;
-}
-</style>
-
-<div class="cockpit-left-column">
-
-    <div class="cockpit-panel-block" data-content="Information Content Goes Here">
-        Information
+    <!-- NAME BLOCK -->
+    <div class="cockpit-name-block">
+        <h2>Gorion's Ward</h2>
     </div>
 
-    <div class="cockpit-panel-block" data-content="Class Content Goes Here">
-        Class
+    <!-- MAIN RIBBON -->
+    <div class="cockpit-ribbon">
+        <div class="cockpit-ribbon-item" data-content="Sex: Male\nRace: Human\nClass: Fighter\nAlignment: Lawful Good">Information</div>
+        <div class="cockpit-ribbon-item" data-content="Class Stats Coming Soon">Class Stats</div>
+        <div class="cockpit-ribbon-item" data-content="Biography Coming Soon">Biography</div>
+        <div class="cockpit-ribbon-item" data-content="Combat Stats Coming Soon">Combat Stats</div>
+        <div class="cockpit-ribbon-item" data-content="Skills Coming Soon">Skills</div>
+        <div class="cockpit-ribbon-item" data-content="Abilities Coming Soon">Abilities</div>
+        <div class="cockpit-ribbon-item" data-content="References Coming Soon">References</div>
     </div>
 
-    <div class="cockpit-panel-block" data-content="Stats Content Goes Here">
-        Stats
+    <!-- SUB-RIBBON -->
+    <div class="cockpit-sub-ribbon">
+        <div class="cockpit-sub-ribbon-item" data-subcontent="Block One Content">Block One</div>
+        <div class="cockpit-sub-ribbon-item" data-subcontent="Block Two Content">Block Two</div>
     </div>
 
-    <div class="cockpit-panel-block" data-content="Biography Content Goes Here">
-        Biography
-    </div>
+    <!-- MAIN LAYOUT -->
+    <div class="cockpit-container">
 
-    <div class="cockpit-panel-block" data-content="Combat Stats Content Goes Here">
-        Combat Stats
-    </div>
-
-    <div class="cockpit-panel-block" data-content="Skills Content Goes Here">
-        Skills
-    </div>
-
-    <div class="cockpit-panel-block" data-content="Abilities Content Goes Here">
-        Abilities
-    </div>
-
-    <div class="cockpit-panel-block" data-content="References Content Goes Here">
-        References
-    </div>
-
-    <!-- Dynamic Rectangle -->
-    <div class="cockpit-dynamic-rectangle" id="dynamicRectangle">
-        Click a block to display its content.
-    </div>
-
-</div>
-
-<div class="cockpit-right-column">
-
-    <!-- Portrait -->
-    <div class="cockpit-portrait-block">
-        <img src="/assets/portraits/sullivan_brian_portrait2.jpg"
-             alt="Character Portrait"
-             style="width:100%; border:2px solid #777;">
-    </div>
-
-    <!-- Static BG1-style Portrait Stats Rectangle -->
-    <div class="cockpit-portrait-stats-rectangle">
-        <div class="cockpit-portrait-stat-row">
-            <span class="cockpit-portrait-stat-label">Sex:</span>
-            <span class="cockpit-portrait-stat-value">Male</span>
+        <!-- LEFT COLUMN -->
+        <div class="cockpit-left-column">
+            <div id="dynamicRectangle" class="cockpit-dynamic-rectangle">
+                Select a panel to view details.
+            </div>
         </div>
-        <div class="cockpit-portrait-stat-row">
-            <span class="cockpit-portrait-stat-label">Race:</span>
-            <span class="cockpit-portrait-stat-value">Human</span>
+
+        <!-- CENTER COLUMN -->
+        <div class="cockpit-center-column">
+            <div class="cockpit-portrait-stats-rectangle">
+                <div class="cockpit-portrait-stat-row">
+                    <span class="cockpit-portrait-stat-label">HP</span>
+                    <span class="cockpit-portrait-stat-value">12</span>
+                </div>
+                <div class="cockpit-portrait-stat-row">
+                    <span class="cockpit-portrait-stat-label">AC</span>
+                    <span class="cockpit-portrait-stat-value">6</span>
+                </div>
+                <div class="cockpit-portrait-stat-row">
+                    <span class="cockpit-portrait-stat-label">THAC0</span>
+                    <span class="cockpit-portrait-stat-value">20</span>
+                </div>
+            </div>
         </div>
-        <div class="cockpit-portrait-stat-row">
-            <span class="cockpit-portrait-stat-label">Class:</span>
-            <span class="cockpit-portrait-stat-value">Fighter</span>
+
+        <!-- RIGHT COLUMN -->
+        <div class="cockpit-right-column">
+
+            <!-- SINGLE PORTRAIT -->
+            <div class="cockpit-portrait-block">
+                <img src="assets/portraits/portrait.jpg" class="cockpit-portrait-img">
+            </div>
+
+            <!-- BASIC INFORMATION CARD -->
+            <div class="cockpit-info-card">
+                <div class="cockpit-info-row">
+                    <span class="cockpit-info-label">Name:</span>
+                    <span class="cockpit-info-value">Gorion's Ward</span>
+                </div>
+                <div class="cockpit-info-row">
+                    <span class="cockpit-info-label">Race:</span>
+                    <span class="cockpit-info-value">Human</span>
+                </div>
+                <div class="cockpit-info-row">
+                    <span class="cockpit-info-label">Class:</span>
+                    <span class="cockpit-info-value">Fighter</span>
+                </div>
+                <div class="cockpit-info-row">
+                    <span class="cockpit-info-label">Alignment:</span>
+                    <span class="cockpit-info-value">Lawful Good</span>
+                </div>
+            </div>
+
         </div>
-        <div class="cockpit-portrait-stat-row">
-            <span class="cockpit-portrait-stat-label">Alignment:</span>
-            <span class="cockpit-portrait-stat-value">Lawful Good</span>
-        </div>
+
     </div>
 
-</div>
-
-<div class="cockpit-clear"></div>
-
-<script>
-/* ============================
-DYNAMIC RECTANGLE LOGIC
-============================ */
-
-document.querySelectorAll('.cockpit-panel-block').forEach(block => {
-    block.addEventListener('click', () => {
-        const content = block.getAttribute('data-content');
-        document.getElementById('dynamicRectangle').innerText = content;
-    });
-});
-</script>
+    <script src="scripts.js"></script>
+</body>
+</html>
